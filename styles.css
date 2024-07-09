@@ -1,0 +1,299 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(225deg, rgba(31,43,71,1) 14%, rgba(44,37,147,1) 67%, rgba(108,99,255,1) 129%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Убираем стандартный скроллбар */
+}
+
+h5 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+._start-btn,
+._finish-btn {
+    border-radius: 20px;
+}
+._start-btn:hover,
+._finish-btn:hover {
+    background-color:#0d65e9;
+    border-color: #0d65e9; 
+    
+}
+
+
+.container-custom {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    height: 90vh; /* Фиксированная высота */
+    text-align: center;
+    overflow: hidden; /* Убираем стандартный скроллбар */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    flex: 1;
+    overflow-y: scroll; /* Включаем кастомный скроллбар */
+    padding-right: 10px; /* Добавляем отступ для кастомного скроллбара */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+label {
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="file"],
+input[type="email"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #1D4ED8;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #3B82F6;
+}
+
+.camera-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.camera-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+  }
+  video {
+    width: 295px;
+    height: 295px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .progress-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .progress-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .progress-circle .progress-bg {
+    stroke: #e6e6e6;
+  }
+  .progress-circle.active .progress {
+    stroke: #3498db;
+    stroke-dasharray: 157; /* Circumference of the circle (2 * Math.PI * radius) */
+    stroke-dashoffset: 157;
+    stroke-width: 1px;
+    animation: fill 15s linear forwards;
+  }
+  @keyframes fill {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+
+.instruction {
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#start-recording {
+    background-color: #3498db;
+    border-radius: 30px;
+}
+
+#start-recording:hover {
+    background-color: #38adfb;
+}
+
+#close-camera {
+    border-radius: 30px;
+    background-color: #ca0000;
+}
+
+#close-camera:hover {
+    background-color: #dd0000;
+}
+
+.verification-processing {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+}
+
+.verification-processing p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+.no-camera {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+}
+
+.no-camera img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+/* Custom Scrollbar */
+.form-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+    background-color: #1D4ED8; /* Main blue color */
+    border-radius: 4px;
+}
+
+.form-container::-webkit-scrollbar-track {
+    background-color: #f4f4f9;
+}
+
+
+.lds-ellipsis,
+.lds-ellipsis div {
+  box-sizing: border-box;
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 40px; /* Уменьшено с 80px */
+  height: 40px; /* Уменьшено с 80px */
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 19.9999px; /* Уменьшено с 33.33333px */
+  width: 7.9999px; /* Уменьшено с 13.33333px */
+  height: 7.9999px; /* Уменьшено с 13.33333px */
+  border-radius: 50%;
+  background: currentColor;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 4px; /* Уменьшено с 8px */
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 4px; /* Уменьшено с 8px */
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 16px; /* Уменьшено с 32px */
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 28px; /* Уменьшено с 56px */
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(12px, 0); /* Уменьшено с 24px */
+  }
+}
